@@ -22,6 +22,8 @@ public class OrderService {
         order.setQuantity(quantity);
         order.setStatus(OrderStatus.ORDERED);
         order.setOrderTime(LocalDateTime.now());
+
+        System.out.print("New createOrder " );
         return orderRepository.save(order);
     }
 
@@ -35,6 +37,7 @@ public class OrderService {
     }
 
     public Order updateOrderStatus(Long id, OrderStatus newStatus) {
+        System.out.println("New Status " + newStatus);
         Order order = getOrderById(id);
         order.setStatus(newStatus);
         return orderRepository.save(order);
